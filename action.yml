@@ -1,0 +1,26 @@
+# action.yml
+name: 'Archiver'
+description: 'Archive any files and/or directories in any format'
+inputs:
+  archiver:
+    description: 'zip, 7zip, tar, bzip2'
+    required: true
+    default: 'zip'
+  name:
+    description: 'output filename'
+    required: true
+  files:
+    description: 'files and/or directories to archive'
+    required: true
+outputs:
+  archive: # id of output
+    description: 'archive output file'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.archiver }}
+    - ${{ inputs.files }}
+branding:
+  icon: 'archive'  
+  color: 'green'

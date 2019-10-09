@@ -1,0 +1,26 @@
+name: Tests
+on: [push]
+
+jobs:
+  test_archiver:
+    runs-on: ubuntu-latest
+    name: A job to test the archiver
+    steps:
+    - name: Prepare some files
+      run: |
+	touch file1
+	mkdir dir1
+	cd dir1
+	touch file2
+	cd ..
+    - name: Archive Files and directories
+      uses: actions/archiver-action@v1
+      with:
+        archiver: zip
+        name: output.zip
+        files: |
+	  file1
+          dir1
+    - name: Show Directory
+      run: |
+	ls -l
