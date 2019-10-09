@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 if [[ "$1" == "zip" ]]; then
 	zip -r $2 ${@:3}
