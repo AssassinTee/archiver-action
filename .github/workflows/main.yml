@@ -19,7 +19,7 @@ jobs:
         archiver: zip
         name: output.zip
         files: |
-	  file1
+          file1
           dir1
     - name: Show Directory
       run: |
