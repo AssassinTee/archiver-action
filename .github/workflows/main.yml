@@ -14,7 +14,7 @@ jobs:
         touch file2
         cd ..
     - name: Archive Files and directories
-      uses: actions/archiver-action@v1
+      uses: AssassinTee/archiver-action@v1
       with:
         archiver: zip
         name: output.zip
