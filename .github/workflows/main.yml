@@ -8,11 +8,11 @@ jobs:
     steps:
     - name: Prepare some files
       run: |
-	touch file1
-	mkdir dir1
-	cd dir1
-	touch file2
-	cd ..
+        touch file1
+        mkdir dir1
+        cd dir1
+        touch file2
+        cd ..
     - name: Archive Files and directories
       uses: actions/archiver-action@v1
       with:
@@ -23,4 +23,4 @@ jobs:
           dir1
     - name: Show Directory
       run: |
-	ls -l
+        ls -l
