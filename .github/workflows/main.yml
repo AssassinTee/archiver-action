@@ -13,7 +13,21 @@ jobs:
         cd dir1
         touch file2
         cd ..
-    - name: Archive Files and directories
+    - name: Archive single file
+      uses: AssassinTee/archiver-action@dev
+      with:
+        archiver: zip
+        name: output.zip
+        files: |
+          file1
+    - name: Archive directory
+      uses: AssassinTee/archiver-action@dev
+      with:
+        archiver: zip
+        name: output.zip
+        files: |
+          dir1
+    - name: Archive files and directories
       uses: AssassinTee/archiver-action@dev
       with:
         archiver: zip
