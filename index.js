@@ -22,7 +22,13 @@ try {
     switch (archiver) {
         case "zip":
 			zip = new jszip();
-            zip.file(`${files}`);
+            var filearr = files.split(" ");
+			
+			function loadFiles(value, index, array){
+				var input = fs.createReadStream(value);
+				zip.file(input);
+			}
+			
             zip
 				.generateNodeStream({type:'nodebuffer',streamFiles:true})
 				.pipe(fs.createWriteStream(`${outputname}`))
