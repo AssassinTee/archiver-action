@@ -1,5 +1,4 @@
-import Seven from 'node-7z';
-
+const Seven = require('node-7z');
 const jszip = require('jszip');
 const tar = require('tar');
 
