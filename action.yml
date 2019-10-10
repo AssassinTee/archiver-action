@@ -16,8 +16,8 @@ outputs:
   archive: # id of output
     description: 'archive output file'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'node12'
+  main: 'index.js'
   args:
     - ${{ inputs.archiver }}
     - ${{ inputs.files }}
