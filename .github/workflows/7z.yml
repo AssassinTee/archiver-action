@@ -1,0 +1,52 @@
+name: Tests
+on: [push]
+
+jobs:
+  test_archiver:
+    runs-on: windows-latest
+    name: A job to test the archiver
+    steps:
+    - name: Prepare some files
+      run: |
+        copy NUL > file1.txt
+        mkdir dir1
+        cd dir1
+        copy NUL > file2.txt
+        cd ..
+    - name: Archive single file
+      uses: AssassinTee/archiver-action@dev
+      with:
+        archiver: 7z
+        name: output.7z
+        files: |
+          file1.txt
+    - name: Archive directory
+      uses: AssassinTee/archiver-action@dev
+      with:
+        archiver: 7z
+        name: output2.7z
+        files: |
+          dir1
+    - name: Archive files and directories
+      uses: AssassinTee/archiver-action@dev
+      with:
+        archiver: 7z
+        name: output3.7z
+        files: |
+          file1.txt
+          dir1
+    - name: Show Directory
+      run: |
+        ls -l
+    - uses: actions/upload-artifact@master
+      with:
+        name: out1
+        path: output.zip
+    - uses: actions/upload-artifact@master
+      with:
+        name: out2
+        path: output2.zip
+    - uses: actions/upload-artifact@master
+      with:
+        name: out3
+        path: output3.zip
