@@ -22,11 +22,14 @@ try {
         case "zip":
 			zip = new jszip();
             zip.file(`${files}`);
-            zip.generateAsync({type:"nodebuffer"})
-                .then(function(content) {
-                    // see FileSaver.js
-                    FileSaver.saveAs(content, outputname);
-                });
+            zip
+				.generateNodeStream({type:'nodebuffer',streamFiles:true})
+				.pipe(fs.createWriteStream(`${outputname}`))
+				.on('finish', function () {
+					// JSZip generates a readable stream with a "end" event,
+					// but is piped here in a writable stream which emits a "finish" event.
+					console.log(`${outputname} has been zipped`);
+				});
             break;
         case "7z":
             const Seven = new SevenZ();
