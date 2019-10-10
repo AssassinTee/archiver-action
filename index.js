@@ -1,6 +1,6 @@
-import JSZip from 'jszip'
-import 'tar'
-import Seven from 'node-7z'
+import JSZip from 'jszip';
+import 'tar';
+import Seven from 'node-7z';
 
 const core = require('@actions/core');
 const github = require('@actions/github');
