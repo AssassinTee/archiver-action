@@ -1,4 +1,4 @@
-const Seven = require('node-7z');
+const SevenZ = require('node-7z-forall');
 const jszip = require('jszip');
 const tar = require('tar');
 
@@ -27,6 +27,7 @@ try {
                 });
             break;
         case "7z":
+            const Seven = new SevenZ();
             const stream = Seven.add(outputname, files, {
                 recursive: true
             });
