@@ -38,3 +38,15 @@ jobs:
     - name: Show Directory
       run: |
         ls -l
+    - uses: actions/upload-artifact@master
+      with:
+        name: out1
+        path: output.zip
+    - uses: actions/upload-artifact@master
+      with:
+        name: out2
+        path: output2.zip
+    - uses: actions/upload-artifact@master
+      with:
+        name: out3
+        path: output3.zip
