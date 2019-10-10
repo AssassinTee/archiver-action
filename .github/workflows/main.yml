@@ -16,7 +16,7 @@ jobs:
     - name: Archive single file
       uses: AssassinTee/archiver-action@dev
       with:
-        archiver: zip
+        archiver: check
         name: output.zip
         files: |
           file1
