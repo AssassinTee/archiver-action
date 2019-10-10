@@ -1,9 +1,9 @@
-const SevenZ = require('node-7z-forall');
-const jszip = require('jszip');
-const tar = require('tar');
-
 const core = require('@actions/core');
 const github = require('@actions/github');
+
+const jszip = require('jszip');
+const tar = require('tar');
+const SevenZ = require('node-7z-forall');
 
 try {
     const archiver = core.getInput('archiver');
