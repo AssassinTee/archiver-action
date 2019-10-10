@@ -4,6 +4,7 @@ const github = require('@actions/github');
 const jszip = require('jszip');
 const tar = require('tar');
 const SevenZ = require('node-7z-forall');
+const FileSaver = require('file-saver');
 
 try {
     const archiver = core.getInput('archiver');
@@ -21,10 +22,10 @@ try {
         case "zip":
 			zip = new jszip();
             zip.file(files);
-            zip.generateAsync({type:"blob"})
+            zip.generateAsync({type:"nodebuffer"})
                 .then(function(content) {
                     // see FileSaver.js
-                    saveAs(content, outputname);
+                    FileSaver.saveAs(content, outputname);
                 });
             break;
         case "7z":
