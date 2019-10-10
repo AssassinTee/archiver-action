@@ -1,4 +1,4 @@
-name: Tests
+name: 7z
 on: [push]
 
 jobs:
