@@ -5,6 +5,7 @@ const jszip = require('jszip');
 const tar = require('tar');
 const SevenZ = require('node-7z-forall');
 const FileSaver = require('file-saver');
+const fs = require('fs');
 
 try {
     const archiver = core.getInput('archiver');
