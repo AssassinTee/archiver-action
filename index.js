@@ -19,8 +19,9 @@ try {
 
     switch (archiver) {
         case "zip":
-            jszip.file(files);
-            jszip.generateAsync({type:"blob"})
+			zip = new jszip();
+            zip.file(files);
+            zip.generateAsync({type:"blob"})
                 .then(function(content) {
                     // see FileSaver.js
                     saveAs(content, outputname);
