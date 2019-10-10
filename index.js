@@ -21,7 +21,7 @@ try {
     switch (archiver) {
         case "zip":
 			zip = new jszip();
-            zip.file(files);
+            zip.file(`${files}`);
             zip.generateAsync({type:"nodebuffer"})
                 .then(function(content) {
                     // see FileSaver.js
