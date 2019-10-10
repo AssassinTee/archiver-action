@@ -1,6 +1,7 @@
-import JSZip from 'jszip';
-import 'tar';
 import Seven from 'node-7z';
+
+const jszip = require('jszip');
+const tar = require('tar');
 
 const core = require('@actions/core');
 const github = require('@actions/github');
@@ -19,9 +20,8 @@ try {
 
     switch (archiver) {
         case "zip":
-            var zip = new JSZip();
-            zip.file(files);
-            zip.generateAsync({type:"blob"})
+            jszip.file(files);
+            jszip.generateAsync({type:"blob"})
                 .then(function(content) {
                     // see FileSaver.js
                     saveAs(content, outputname);
